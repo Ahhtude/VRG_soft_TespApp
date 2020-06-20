@@ -12,12 +12,32 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+     let liveNews = NewsFeedRouter.createModule()
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
-    }
+       
+           
+
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = liveNews
+            window?.makeKeyAndVisible()
+
+            setupUIAppearance()
+            return true
+        }
+
+        func setupUIAppearance() {
+            let navBarAppearance = UINavigationBar.appearance()
+            navBarAppearance.barTintColor = UIColor.blue
+            navBarAppearance.tintColor = UIColor.white
+            navBarAppearance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 18), .foregroundColor: UIColor.white]
+            navBarAppearance.shadowImage = UIImage()
+            navBarAppearance.setBackgroundImage(UIImage(), for: .default)
+            navBarAppearance.isTranslucent = false
+        }
 
     // MARK: UISceneSession Lifecycle
 
