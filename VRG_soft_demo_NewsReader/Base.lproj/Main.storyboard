@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oL1-NB-x5B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UI0-wJ-gjO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,6 +7,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="xaG-Wy-VdL">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarViewController" id="UI0-wJ-gjO" customClass="MainTabBarViewController" customModule="VRG_soft_demo_NewsReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X4H-Fg-ost">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZaQ-IT-dy4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="133"/>
+        </scene>
         <!--News Feed View Controller-->
         <scene sceneID="006-m7-rdE">
             <objects>
@@ -16,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJR-ff-UVm">
-                                <rect key="frame" x="0.0" y="88" width="414" height="757"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeedViewCell" rowHeight="266" id="IYX-BE-DvQ" customClass="FeedViewCell" customModule="VRG_soft_demo_NewsReader">
@@ -35,10 +50,10 @@
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAb-e9-0Vg">
                                                                     <rect key="frame" x="0.0" y="0.0" width="367" height="185"/>
                                                                 </imageView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-Yw-kUQ">
-                                                                    <rect key="frame" x="242" y="8" width="117" height="20"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-Yw-kUQ" customClass="addToFavoriteButton" customModule="VRG_soft_demo_NewsReader" customModuleProvider="target">
+                                                                    <rect key="frame" x="329" y="8" width="30" height="29"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <state key="normal" title="Add to favorite" image="star" catalog="system">
+                                                                    <state key="normal" title="Add">
                                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <connections>
@@ -94,131 +109,32 @@
                                         <connections>
                                             <outlet property="dateLabel" destination="ahi-qr-nhA" id="Duc-VE-AYX"/>
                                             <outlet property="descrLabel" destination="iuS-TZ-x9c" id="HDy-Tw-tHI"/>
+                                            <outlet property="favoriteButton" destination="Plr-Yw-kUQ" id="PwT-xT-Cbe"/>
                                             <outlet property="feedImage" destination="oAb-e9-0Vg" id="IkJ-5g-39r"/>
                                             <outlet property="titleLabel" destination="h6A-tI-D3q" id="Y62-BN-yed"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6q-gC-otC" userLabel="TabbarView" customClass="CastomTabBarView" customModule="VRG_soft_demo_NewsReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="845" width="414" height="51"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pjw-XG-xhI" userLabel="border view">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="TQ9-Hx-C3t"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bxx-qP-iVf">
-                                        <rect key="frame" x="5" y="1" width="404" height="50"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ih4-0q-uGx" userLabel="mostShared" customClass="UIControl">
-                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="50"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vQn-HH-EMH" userLabel="most shared">
-                                                        <rect key="frame" x="7" y="0.0" width="95.5" height="44.5"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="quz-2h-1hy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="24"/>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Most shared" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7MW-au-qbh">
-                                                                <rect key="frame" x="0.0" y="24" width="95.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <connections>
-                                                    <action selector="tapMostSharedNews:" destination="ZTA-Ql-X5k" eventType="touchDown" id="rdU-HE-xiY"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gW-1D-RCH" userLabel="mostViewd" customClass="UIControl">
-                                                <rect key="frame" x="148.5" y="0.0" width="130.5" height="50"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r6C-pO-83s" userLabel="most viewed">
-                                                        <rect key="frame" x="-6.5" y="0.0" width="89.5" height="44.5"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewd" translatesAutoresizingMaskIntoConstraints="NO" id="qhy-3X-7ue">
-                                                                <rect key="frame" x="0.0" y="0.0" width="89.5" height="24"/>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Most Viewd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1av-b1-AP1">
-                                                                <rect key="frame" x="0.0" y="24" width="89.5" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <connections>
-                                                    <action selector="tapMostViewdNews:" destination="ZTA-Ql-X5k" eventType="touchDown" id="ncy-D7-Nsj"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-8a-38W" userLabel="mostEmailed" customClass="UIControl">
-                                                <rect key="frame" x="284" y="0.0" width="120" height="50"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yuL-ce-KXu" userLabel="most emailed">
-                                                        <rect key="frame" x="51" y="0.0" width="103" height="44.5"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailed" translatesAutoresizingMaskIntoConstraints="NO" id="9sm-7C-6XH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="103" height="24"/>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Most emailed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRq-gW-xbL">
-                                                                <rect key="frame" x="0.0" y="24" width="103" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <connections>
-                                                    <action selector="tapMostEmailedNews:" destination="ZTA-Ql-X5k" eventType="touchDown" id="R25-AT-r45"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="w9C-Dy-Liu"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Pjw-XG-xhI" secondAttribute="trailing" id="DqJ-G9-Nnl"/>
-                                    <constraint firstItem="bxx-qP-iVf" firstAttribute="top" secondItem="g6q-gC-otC" secondAttribute="top" constant="1" id="L9G-bB-gFM"/>
-                                    <constraint firstAttribute="bottom" secondItem="bxx-qP-iVf" secondAttribute="bottom" id="XRR-hl-Eed"/>
-                                    <constraint firstItem="Pjw-XG-xhI" firstAttribute="leading" secondItem="g6q-gC-otC" secondAttribute="leading" id="Xqv-wb-hx2"/>
-                                    <constraint firstItem="bxx-qP-iVf" firstAttribute="leading" secondItem="g6q-gC-otC" secondAttribute="leading" constant="5" id="aRg-Uk-KgB"/>
-                                    <constraint firstAttribute="trailing" secondItem="bxx-qP-iVf" secondAttribute="trailing" constant="5" id="aZ9-kp-oS6"/>
-                                    <constraint firstItem="Pjw-XG-xhI" firstAttribute="top" secondItem="g6q-gC-otC" secondAttribute="top" id="bdb-3h-jv8"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g6q-gC-otC" firstAttribute="leading" secondItem="9pA-hb-XHL" secondAttribute="leading" id="De9-vb-nVg"/>
+                            <constraint firstItem="9pA-hb-XHL" firstAttribute="bottom" secondItem="yJR-ff-UVm" secondAttribute="bottom" id="DUD-o0-beJ"/>
                             <constraint firstItem="yJR-ff-UVm" firstAttribute="leading" secondItem="9pA-hb-XHL" secondAttribute="leading" id="Fyr-Fv-Agl"/>
-                            <constraint firstItem="g6q-gC-otC" firstAttribute="trailing" secondItem="9pA-hb-XHL" secondAttribute="trailing" id="Gdz-yx-fBQ"/>
-                            <constraint firstAttribute="bottom" secondItem="g6q-gC-otC" secondAttribute="bottom" id="ZLW-jK-5zQ"/>
                             <constraint firstItem="yJR-ff-UVm" firstAttribute="top" secondItem="9pA-hb-XHL" secondAttribute="top" id="g0o-Ld-cYz"/>
                             <constraint firstItem="yJR-ff-UVm" firstAttribute="trailing" secondItem="9pA-hb-XHL" secondAttribute="trailing" id="lL7-qW-wtV"/>
-                            <constraint firstItem="g6q-gC-otC" firstAttribute="top" secondItem="yJR-ff-UVm" secondAttribute="bottom" id="tg1-uj-Mcd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9pA-hb-XHL"/>
                     </view>
                     <navigationItem key="navigationItem" id="b1J-d2-6eg">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="laR-oO-ejY">
                             <connections>
-                                <action selector="favoriteButtonTap:" destination="ZTA-Ql-X5k" id="qTx-Nr-jD1"/>
+                                <action selector="favoriteButtonTap:" destination="ZTA-Ql-X5k" id="Ked-AL-rsw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="yJR-ff-UVm" id="gnv-L8-uPw"/>
                     </connections>
@@ -226,24 +142,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubr-ir-ahT" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1073.913043478261" y="132.58928571428572"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xeR-Ja-2s7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oL1-NB-x5B" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qAA-yD-vFz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ZTA-Ql-X5k" kind="relationship" relationship="rootViewController" id="DA6-Hs-hnv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YNu-Hr-C8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="132" y="133.5832083958021"/>
         </scene>
         <!--News Detail View Controller-->
         <scene sceneID="dlh-Ml-44a">
@@ -333,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ZT-Wk-uhe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834.4000000000001" y="118.29085457271366"/>
+            <point key="canvasLocation" x="1775" y="133"/>
         </scene>
         <!--Favorite Detail View Controller-->
         <scene sceneID="lfH-1z-1BE">
@@ -418,13 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7K-t3-j2u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2607.2463768115945" y="111.83035714285714"/>
+            <point key="canvasLocation" x="2472" y="133"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="emailed" width="24" height="24"/>
-        <image name="share" width="24" height="24"/>
-        <image name="star" catalog="system" width="128" height="116"/>
-        <image name="viewd" width="24" height="24"/>
-    </resources>
 </document>

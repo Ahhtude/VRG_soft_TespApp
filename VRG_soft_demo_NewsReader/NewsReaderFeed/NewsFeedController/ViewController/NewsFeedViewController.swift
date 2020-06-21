@@ -9,17 +9,6 @@
 import UIKit
 import PKHUD
 
-
-//extension String {
-//    func containSearchString( _ str: String) -> Bool {
-//        if self.lowercased().range(of: str.lowercased()) != nil {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//}
-
 class NewsFeedViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +21,7 @@ class NewsFeedViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        
+        self.presenter.interector?.currentNewsState = .mostViewed
         configureTableView()
         self.title = "News"
     }
@@ -45,22 +34,6 @@ class NewsFeedViewController: BaseViewController {
     @IBAction func favoriteButtonTap(_ sender: Any) {
         presenter.showFavoriteDetail(from: self)
     }
-    
-    @IBAction func tapMostSharedNews(_ sender: Any) {
-        self.presenter.interector?.currentNewsState = .mostShared
-        self.presenter.interector?.fetchNewsFeed()
-    }
-    
-    @IBAction func tapMostViewdNews(_ sender: Any) {
-        self.presenter.interector?.currentNewsState = .mostViewd
-        self.presenter.interector?.fetchNewsFeed()
-    }
-    
-    @IBAction func tapMostEmailedNews(_ sender: Any) {
-        self.presenter.interector?.currentNewsState = .mostEmailed
-        self.presenter.interector?.fetchNewsFeed()
-    }
-
     
 }
 

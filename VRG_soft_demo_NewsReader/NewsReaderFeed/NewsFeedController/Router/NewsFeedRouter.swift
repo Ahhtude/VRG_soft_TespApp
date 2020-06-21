@@ -28,11 +28,13 @@ class NewsFeedRouter: PresenterToRouterProtocol {
         }
     }
     
-    static func createModule() -> UIViewController {
+    static func createModule(newsTypeVC: CurrentControllerState) -> UIViewController {
         let viewController = mainstoryboard.instantiateViewController(withIdentifier: "NewsFeedViewControoler") as? NewsFeedViewController
         
         let presenter: NewsFeedToPresenterProtocol & InterectorToPresenterProtocol = NewsFeedPresenter()
-        let interactor: PresentorToInterectorProtocol = NewsFeedInterector()
+        
+        let interactor: PresentorToInterectorProtocol = NewsFeedInterector(newsInterectorType: newsTypeVC)
+
         let router: PresenterToRouterProtocol = NewsFeedRouter()
         
         viewController?.presenter = presenter
@@ -41,7 +43,6 @@ class NewsFeedRouter: PresenterToRouterProtocol {
         presenter.interector = interactor
         interactor.presenter = presenter
         interactor.remoteDatamanager = NewsFeedListRemoteDataManager()
-
         return UINavigationController.init(rootViewController: viewController!)
     }
     

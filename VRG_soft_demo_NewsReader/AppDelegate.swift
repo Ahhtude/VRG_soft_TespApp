@@ -21,16 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
         }
 
-        func setupUIAppearance() {
-            let navBarAppearance = UINavigationBar.appearance()
-            navBarAppearance.barTintColor = UIColor.blue
-            navBarAppearance.tintColor = UIColor.white
-            navBarAppearance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 18), .foregroundColor: UIColor.white]
-            navBarAppearance.shadowImage = UIImage()
-            navBarAppearance.setBackgroundImage(UIImage(), for: .default)
-            navBarAppearance.isTranslucent = false
-        }
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

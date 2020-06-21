@@ -1,50 +1,22 @@
 //
-//  FeedInterector.swift
+//  FavoriteFeedInterector.swift
 //  VRG_soft_demo_NewsReader
 //
-//  Created by Sergey berdnik on 20.06.2020.
+//  Created by Sergey berdnik on 21.06.2020.
 //  Copyright © 2020 Sergey berdnik. All rights reserved.
 //
 
 import Foundation
-import Alamofire
 
-class Pagination {
-   private var currentPage: Int
-   private var maxCount: Int
-    
-    init() {
-        currentPage = 1
-        maxCount = 1
-    }
-    
-    func increment() {
-        currentPage += 1
-    }
-    
-    func getCurrentPage() -> Int {
-        return currentPage
-    }
-
-    func reset() {
-        currentPage = 1
-    }
-}
-
-class NewsFeedInterector: PresentorToInterectorProtocol {
-    
+class FavoriteFeedInterector: PresentorToInterectorProtocol {
     var presenter: InterectorToPresenterProtocol?
     var remoteDatamanager: NewsFeedListRemoteDataManagerProtocol?
     
-    var currentNewsState: CurrentControllerState
-    
-    init(newsInterectorType: CurrentControllerState) {
-        self.currentNewsState = newsInterectorType
-    }
+    var currentNewsState: CurrentControllerState = CurrentControllerState.mostEmailed
     
    private var pagination = Pagination()
    private var dataSource: [NewsFeed] = []
-    private var isLoading: Bool = false
+   private var isLoading: Bool = false
     
     func fetchNewsFeed() {
         self.dataSource.removeAll()
@@ -53,7 +25,7 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
         }
         
         isLoading = true
-        remoteDatamanager?.getNews(pagination: pagination, type: currentNewsState, resultHandler: {[weak self] (result) in
+        remoteDatamanager?.getFavorite(pagination: pagination, resultHandler: {[weak self] (result) in
             self?.isLoading = false
             self?.dataSource.append(contentsOf: result)
             self?.pagination.increment()
@@ -64,4 +36,3 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
         })
     }
 }
-

@@ -27,8 +27,8 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
     func showPostDetail(forPost post: NewsFeed) {
         titleLabel.text = post.title
         descrLabel.text = post.body
-        
-         //guard let imgString = post.media.first?.mediaFiles.last?.imgString else {
+        dateLabel.text = post.publishDate
+    
         guard let imgString = post.image else {
                    self.postImage.contentMode = .scaleAspectFit
                    self.postImage.image = UIImage(named: "defaultNewsImage")

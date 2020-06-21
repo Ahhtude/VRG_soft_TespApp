@@ -11,27 +11,25 @@ import AlamofireImage
 import CoreData
 
 class FeedViewCell: UITableViewCell {
-    static let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = " MMMM d, HH:mm"
-        return formatter
-    }()
 
     @IBOutlet weak var feedImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descrLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var favoriteButton: addToFavoriteButton!
     
     lazy private var newsFeed : NewsFeed? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.favoriteButton.setTitleWithImage(title: "add to favorite", image: "favorite")
     }
     
     override func prepareForReuse() {
         feedImage.image = nil
         titleLabel.text = ""
         descrLabel.text = ""
+        favoriteButton.setTitleWithImage(title: "add to favorite", image: "favorite")
     }
     
     func fill(post: NewsFeed) {
@@ -39,6 +37,8 @@ class FeedViewCell: UITableViewCell {
         titleLabel.text = post.title
         descrLabel.text = post.body
         dateLabel.text = post.publishDate
+    
+
         
         //guard let imgString = post.media.first?.mediaFiles.last?.imgString else {
         guard let imgString = post.image else {
@@ -53,10 +53,12 @@ class FeedViewCell: UITableViewCell {
     }
     
     @IBAction func addToFavorite(_ sender: Any) {
-        guard let news = self.newsFeed else{
+        guard let news = self.newsFeed, !self.favoriteButton.isSelect else {
             print("Adding to favorite was failed - news is NIL")
             return
         }
+        
+        self.favoriteButton.isSelect = true
         self.addToFavorite(post: news)
     }
     
@@ -65,16 +67,18 @@ class FeedViewCell: UITableViewCell {
         let context = app.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
         let news = NSManagedObject(entity: entity!, insertInto: context)
+        
         news.setValue(post.title, forKey: "title")
         news.setValue(post.body, forKey: "body")
         news.setValue(post.publishDate, forKey: "publishDate")
-        //if let imgString = post.media.first?.mediaFiles.last?.imgString{
-        if let imgString = post.image{
+        
+        if let imgString = post.image {
             news.setValue(imgString, forKey: "image")
         }
+        
         do {
            try context.save()
-            print("Content was saved")
+            print("Content to local was saved")
           } catch {
            print("Failed saving")
         }

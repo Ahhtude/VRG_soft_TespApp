@@ -12,6 +12,7 @@ import CoreData
 
 protocol NewsFeedListRemoteDataManagerProtocol {
     func getNews(pagination: Pagination, type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
+    
     func getFavorite(pagination: Pagination, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
 }
 
@@ -24,31 +25,13 @@ struct Constants {
 
 struct HttpStatusCode {
     static let successful           = 200
-}
+ }
 
-
-enum DateFormatterConstants {
-    static var iso8601Full: String {
-        return "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-    }
-}
-
-
-extension DateFormatter {
-    static let iso8601Full: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateFormatterConstants.iso8601Full
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        return formatter
-    }()
-    
-}
 
 
 enum NetworkError: Error {
     case server(Int, String, URL?)
+    case localStore(String)
 }
 
 
@@ -78,10 +61,14 @@ class Page<Model: Decodable>: Decodable {
 
 
 class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
+    
     func getNews(pagination: Pagination,type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
+        
         var test : String = Constants.baseURL + type.rawValue + Constants.endURL
         let path = String(format: test, pagination.getCurrentPage())
+        
         print("Current path to request ---- \n \(path) \n ----------")
+        
         guard let url = URL(string: path) else { return }
         
         Alamofire.request(url).responseJSON { response in
@@ -92,7 +79,6 @@ class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
             if response.response?.statusCode == HttpStatusCode.successful, let data = response.data {
                 
                 let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
                 do {
                     responseData =  try decoder.decode(Page<NewsFeed>.self, from: data)
                     
@@ -120,19 +106,19 @@ class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
         var error: NetworkError?
         
         do {
-                   let result = try context.fetch(request)
-                for data in result as! [News] {
-                    print("Local request data is \(data)")
+            let result = try context.fetch(request)
+            for data in result as! [News] {
                     let new = NewsFeed.init(title: data.title!, body: data.body!, date: data.publishDate!, image: data.image!)
                     responseData.append(new)
                  }
-               } catch {
-                //error = NetworkError.server(0, "test", nil)
+            
+            } catch {
+                //error = NetworkError.localStore("Some troubles in request from local store")
                }
         if responseData != nil {
             resultHandler(responseData)
         } else {
-            //errorHandler(error)
+            errorHandler(error)
         }
     }
 }

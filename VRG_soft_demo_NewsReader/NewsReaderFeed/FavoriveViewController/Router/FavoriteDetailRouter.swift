@@ -9,6 +9,7 @@
 import UIKit
 
 class FavoriteDetailRouter: FavoriteDetailRoutProtocol {
+    
     class func createModule() -> UIViewController {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: "FavoriteDetailViewController")
         

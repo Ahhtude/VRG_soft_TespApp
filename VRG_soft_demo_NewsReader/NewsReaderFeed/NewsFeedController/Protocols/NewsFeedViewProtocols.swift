@@ -11,7 +11,7 @@ import UIKit
 
 enum CurrentControllerState : String {
     case mostShared  = "/shared/"
-    case mostViewd   = "/viewed/"
+    case mostViewed   = "/viewed/"
     case mostEmailed = "/emailed/"
 }
 
@@ -33,7 +33,7 @@ protocol NewsFeedToPresenterProtocol: class {
 }
 
 protocol PresenterToRouterProtocol: class {
-    static func createModule() -> UIViewController
+    static func createModule(newsTypeVC: CurrentControllerState) -> UIViewController
            func seguePostDetailModule(from view: NewsFeedViewProtocol, forPost: NewsFeed)
            func segueFavoriteDetailModule(from: NewsFeedViewProtocol)
             
