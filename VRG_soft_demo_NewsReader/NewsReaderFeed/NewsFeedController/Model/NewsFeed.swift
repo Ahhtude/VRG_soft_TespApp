@@ -32,7 +32,8 @@ struct NewsFeed: Decodable {
         media = try values.decodeIfPresent([MediaModel].self, forKey: .media)!
         image = media?.first?.mediaFiles.last?.imgString
     }
-    init(title: String, body: String, date: String, image: String) {
+    
+    init(title: String, body: String, date: String, image: String?) {
         self.title = title
         self.body = body
         self.publishDate = date

@@ -29,7 +29,7 @@ class addToFavoriteButton : UIButton {
             if selected {
                 backgroundColor = UIColor.red
             } else {
-                backgroundColor = UIColor.blue
+                backgroundColor = UIColor.white
             }
         }
     
@@ -43,7 +43,7 @@ class addToFavoriteButton : UIButton {
         imageAttach.image = img
         let main = NSMutableAttributedString(attachment: imageAttach)
         let title = NSAttributedString(string: "  " + NSLocalizedString(title, comment: "") + " ",
-                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue,
+                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.black,
                                                     NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13)])
         main.append(title)
         self.setAttributedTitle(main, for: .normal)
