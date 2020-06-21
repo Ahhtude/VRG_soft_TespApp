@@ -29,7 +29,6 @@ class FeedViewCell: UITableViewCell {
         feedImage.image = nil
         titleLabel.text = ""
         descrLabel.text = ""
-        favoriteButton.setTitleWithImage(title: "add to favorite", image: "favorite")
     }
     
     func fill(post: NewsFeed) {
