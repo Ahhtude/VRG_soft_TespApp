@@ -10,10 +10,12 @@ import Foundation
 
 struct NewsFeed: Decodable {
 
-    let publishDate : Date?
+    let publishDate : String
     let title: String
     let body : String
-    let media : MediaModel
+    private let media : [MediaModel]?
+    
+    var image : String?
 
     private enum CodingKeys: String, CodingKey {
         case publishDate = "published_date"
@@ -24,14 +26,22 @@ struct NewsFeed: Decodable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        title = try! values.decode(String.self, forKey: .title)
-        body = try! values.decode(String.self, forKey: .body)
-        media = try! values.decode(MediaModel.self, forKey: .media)
-        publishDate = try values.decodeIfPresent(Date.self, forKey: .publishDate)
+        title = try values.decodeIfPresent(String.self, forKey: .title) ?? ""
+        body = try values.decodeIfPresent(String.self, forKey: .body) ?? ""
+        publishDate = try values.decode(String.self, forKey: .publishDate)
+        media = try values.decodeIfPresent([MediaModel].self, forKey: .media)!
+        image = media?.first?.mediaFiles.last?.imgString
+    }
+    init(title: String, body: String, date: String, image: String) {
+        self.title = title
+        self.body = body
+        self.publishDate = date
+        self.image = image
+        self.media = nil
     }
 }
 
-struct MediaModel: Decodable {
+fileprivate struct MediaModel: Decodable {
     let mediaFiles : [MediaData]
     
     private enum CodingKeys: String, CodingKey {
@@ -44,7 +54,7 @@ struct MediaModel: Decodable {
     }
 }
 
-struct MediaData: Decodable {
+fileprivate struct MediaData: Decodable {
     let imgString : String
     let height : Int
     let width : Int

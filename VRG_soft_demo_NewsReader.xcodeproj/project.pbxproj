@@ -26,6 +26,13 @@
 		24EBC4B7249E17680069A70D /* NewsDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4B6249E17680069A70D /* NewsDetailViewProtocol.swift */; };
 		24EBC4B9249E179D0069A70D /* NewsDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4B8249E179D0069A70D /* NewsDetailRouter.swift */; };
 		24EBC4BF249E17F00069A70D /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4BE249E17F00069A70D /* NewsDetailViewController.swift */; };
+		24EBC4C6249F3D130069A70D /* FavoriteDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4C5249F3D130069A70D /* FavoriteDetailRouter.swift */; };
+		24EBC4C8249F3D5C0069A70D /* FavoriteDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4C7249F3D5C0069A70D /* FavoriteDetailProtocol.swift */; };
+		24EBC4CA249F3E490069A70D /* FavoriteDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4C9249F3E490069A70D /* FavoriteDetailPresenter.swift */; };
+		24EBC4CC249F40E20069A70D /* FavoriteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4CB249F40E20069A70D /* FavoriteDetailViewController.swift */; };
+		24EBC4CF249F4B7F0069A70D /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4CE249F4B7F0069A70D /* FavoriteViewCell.swift */; };
+		24EBC4D1249F693E0069A70D /* CastomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4D0249F693E0069A70D /* CastomTabBarView.swift */; };
+		24EBC4D3249F9FBB0069A70D /* Pagination + Interactor protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4D2249F9FBB0069A70D /* Pagination + Interactor protocols.swift */; };
 		5978DA8B646B4C95DE17A8CF /* Pods_VRG_soft_demo_NewsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C51F7080960DAC0A070216 /* Pods_VRG_soft_demo_NewsReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +60,13 @@
 		24EBC4B6249E17680069A70D /* NewsDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewProtocol.swift; sourceTree = "<group>"; };
 		24EBC4B8249E179D0069A70D /* NewsDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailRouter.swift; sourceTree = "<group>"; };
 		24EBC4BE249E17F00069A70D /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		24EBC4C5249F3D130069A70D /* FavoriteDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailRouter.swift; sourceTree = "<group>"; };
+		24EBC4C7249F3D5C0069A70D /* FavoriteDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailProtocol.swift; sourceTree = "<group>"; };
+		24EBC4C9249F3E490069A70D /* FavoriteDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailPresenter.swift; sourceTree = "<group>"; };
+		24EBC4CB249F40E20069A70D /* FavoriteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailViewController.swift; sourceTree = "<group>"; };
+		24EBC4CE249F4B7F0069A70D /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		24EBC4D0249F693E0069A70D /* CastomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTabBarView.swift; sourceTree = "<group>"; };
+		24EBC4D2249F9FBB0069A70D /* Pagination + Interactor protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pagination + Interactor protocols.swift"; sourceTree = "<group>"; };
 		B2163C0EC31A1207982E43FA /* Pods-VRG_soft_demo_NewsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRG_soft_demo_NewsReader.release.xcconfig"; path = "Target Support Files/Pods-VRG_soft_demo_NewsReader/Pods-VRG_soft_demo_NewsReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				24EBC48A249E0DE50069A70D /* BaseViewController.swift */,
+				24EBC4D0249F693E0069A70D /* CastomTabBarView.swift */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -123,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				24EBC48D249E0E190069A70D /* NetworkService.swift */,
+				24EBC4D2249F9FBB0069A70D /* Pagination + Interactor protocols.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -130,6 +146,7 @@
 		24EBC491249E0E840069A70D /* NewsReaderFeed */ = {
 			isa = PBXGroup;
 			children = (
+				24EBC4C0249F3CB10069A70D /* FavoriveViewController */,
 				24EBC4A8249E16970069A70D /* NewsDetailViewControoler */,
 				24EBC492249E0E950069A70D /* NewsFeedController */,
 			);
@@ -247,6 +264,58 @@
 				24EBC4B0249E17060069A70D /* NewsFeedViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		24EBC4C0249F3CB10069A70D /* FavoriveViewController */ = {
+			isa = PBXGroup;
+			children = (
+				24EBC4CD249F4B690069A70D /* View */,
+				24EBC4C4249F3CE90069A70D /* Presenter */,
+				24EBC4C3249F3CE10069A70D /* Protocols */,
+				24EBC4C2249F3CCB0069A70D /* ViewController */,
+				24EBC4C1249F3CC50069A70D /* Router */,
+			);
+			path = FavoriveViewController;
+			sourceTree = "<group>";
+		};
+		24EBC4C1249F3CC50069A70D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				24EBC4C5249F3D130069A70D /* FavoriteDetailRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		24EBC4C2249F3CCB0069A70D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				24EBC4CB249F40E20069A70D /* FavoriteDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		24EBC4C3249F3CE10069A70D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				24EBC4C7249F3D5C0069A70D /* FavoriteDetailProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		24EBC4C4249F3CE90069A70D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				24EBC4C9249F3E490069A70D /* FavoriteDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		24EBC4CD249F4B690069A70D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24EBC4CE249F4B7F0069A70D /* FavoriteViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CB6A52FC8BD54A4A219676E2 /* Pods */ = {
@@ -374,10 +443,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				24EBC48B249E0DE50069A70D /* BaseViewController.swift in Sources */,
+				24EBC4C6249F3D130069A70D /* FavoriteDetailRouter.swift in Sources */,
 				24EBC4BF249E17F00069A70D /* NewsDetailViewController.swift in Sources */,
 				24EBC4B7249E17680069A70D /* NewsDetailViewProtocol.swift in Sources */,
+				24EBC4C8249F3D5C0069A70D /* FavoriteDetailProtocol.swift in Sources */,
 				24EBC4B9249E179D0069A70D /* NewsDetailRouter.swift in Sources */,
 				24EBC4A1249E11A00069A70D /* NewsFeedPresenter.swift in Sources */,
+				24EBC4CC249F40E20069A70D /* FavoriteDetailViewController.swift in Sources */,
 				24EBC499249E0F380069A70D /* NewsFeed.swift in Sources */,
 				24EBC49E249E0F900069A70D /* NewsFeedViewProtocols.swift in Sources */,
 				24EBC473249E0D2C0069A70D /* AppDelegate.swift in Sources */,
@@ -387,8 +459,12 @@
 				24EBC4A4249E15AE0069A70D /* FeedInterector.swift in Sources */,
 				24EBC4A7249E15D50069A70D /* NewsFeedRouter.swift in Sources */,
 				24EBC494249E0EB90069A70D /* FeedViewCell.swift in Sources */,
+				24EBC4CA249F3E490069A70D /* FavoriteDetailPresenter.swift in Sources */,
+				24EBC4D3249F9FBB0069A70D /* Pagination + Interactor protocols.swift in Sources */,
+				24EBC4CF249F4B7F0069A70D /* FavoriteViewCell.swift in Sources */,
 				24EBC475249E0D2C0069A70D /* SceneDelegate.swift in Sources */,
 				24EBC4B1249E17060069A70D /* NewsFeedViewController.swift in Sources */,
+				24EBC4D1249F693E0069A70D /* CastomTabBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

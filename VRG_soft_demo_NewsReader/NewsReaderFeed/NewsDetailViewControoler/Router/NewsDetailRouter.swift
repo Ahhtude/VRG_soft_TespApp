@@ -12,7 +12,7 @@ class NewsPostDetailRouter: NewsDetailRoutProtocol {
     
     class func createPostDetailModule(forPost post: NewsFeed) -> UIViewController {
 
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "PostDetailController")
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "NewsDetailViewController")
         
         if let viewController = viewController as? NewsDetailViewController {
             let presenter: NewsDetailPresenterProtocol = NewsDetailPresenter()

@@ -25,15 +25,18 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
     }
     
     func showPostDetail(forPost post: NewsFeed) {
-        if let imageURL = URL(string: post.media.mediaFiles[0].imgString) {
-            self.postImage.af_setImage(withURL: imageURL)
-        }
-        
         titleLabel.text = post.title
         descrLabel.text = post.body
         
-        if let data = post.publishDate {
-            dateLabel.text = "Updated: \(FeedViewCell.dateFormatter.string(from: data))"
-        }
+         //guard let imgString = post.media.first?.mediaFiles.last?.imgString else {
+        guard let imgString = post.image else {
+                   self.postImage.contentMode = .scaleAspectFit
+                   self.postImage.image = UIImage(named: "defaultNewsImage")
+                   return
+               }
+               
+         if let imageURL = URL(string: imgString) {
+                   self.postImage.af_setImage(withURL: imageURL)
+               }
     }
 }

@@ -18,11 +18,17 @@ class NewsFeedRouter: PresenterToRouterProtocol {
         if let sourceView = view as? UIViewController {
             sourceView.navigationController?.pushViewController(postDetailViewController, animated: true)
         }
-
+    }
+    
+    func segueFavoriteDetailModule(from view: NewsFeedViewProtocol) {
+        let favoriteDetailViewController = FavoriteDetailRouter.createModule()
+    
+        if let sourceView = view as? UIViewController {
+            sourceView.navigationController?.pushViewController(favoriteDetailViewController, animated: true)
+        }
     }
     
     static func createModule() -> UIViewController {
-        
         let viewController = mainstoryboard.instantiateViewController(withIdentifier: "NewsFeedViewControoler") as? NewsFeedViewController
         
         let presenter: NewsFeedToPresenterProtocol & InterectorToPresenterProtocol = NewsFeedPresenter()

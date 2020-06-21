@@ -1,76 +1,45 @@
 //
-//  NewsFeedViewController.swift
+//  FavoriteDetailViewController.swift
 //  VRG_soft_demo_NewsReader
 //
-//  Created by Sergey berdnik on 20.06.2020.
+//  Created by Sergey berdnik on 21.06.2020.
 //  Copyright © 2020 Sergey berdnik. All rights reserved.
 //
 
+
 import UIKit
-import PKHUD
+import Alamofire
 
-
-//extension String {
-//    func containSearchString( _ str: String) -> Bool {
-//        if self.lowercased().range(of: str.lowercased()) != nil {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//}
-
-class NewsFeedViewController: BaseViewController {
+class FavoriteDetailViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var presenter: NewsFeedToPresenterProtocol!
+    var presenter: FavoriteDetailToPresenterProtocol!
     
-   private var newsFeeds: [NewsFeed] = []
-   private var dataSource: [NewsFeed] = []
+    private var newsFeeds: [NewsFeed] = []
+    private var dataSource: [NewsFeed] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        
         configureTableView()
-        self.title = "News"
+        self.title = "Favorite"
     }
     
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    @IBAction func favoriteButtonTap(_ sender: Any) {
-        presenter.showFavoriteDetail(from: self)
-    }
-    
-    @IBAction func tapMostSharedNews(_ sender: Any) {
-        self.presenter.interector?.currentNewsState = .mostShared
-        self.presenter.interector?.fetchNewsFeed()
-    }
-    
-    @IBAction func tapMostViewdNews(_ sender: Any) {
-        self.presenter.interector?.currentNewsState = .mostViewd
-        self.presenter.interector?.fetchNewsFeed()
-    }
-    
-    @IBAction func tapMostEmailedNews(_ sender: Any) {
-        self.presenter.interector?.currentNewsState = .mostEmailed
-        self.presenter.interector?.fetchNewsFeed()
-    }
-
-    
 }
 
-extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavoriteDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedViewCell") as? FeedViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell") as? FavoriteViewCell else { return UITableViewCell() }
         let feed = dataSource[indexPath.row]
         cell.fill(post: feed)
         return cell
@@ -91,25 +60,17 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         let feed = dataSource[indexPath.row]
         presenter.showPostDetail(from: self, forPost: feed)
     }
+    
 }
 
+extension FavoriteDetailViewController: FavoriteDetailViewProtocol {
 
-extension NewsFeedViewController: NewsFeedViewProtocol {
-    func showLoadingView() {
-        HUD.show(.progress)
-    }
-    
-    func hideLoadingView() {
-        HUD.hide()
-    }
-    
-    func showNews(news: [NewsFeed]) {
+    func showFavoriveNews(news: [NewsFeed]) {
         tableView.tableFooterView = nil
         newsFeeds = news
         dataSource = newsFeeds
         tableView.reloadData()
     }
-    
     
     func showError(error: Error?) {
         let alert = UIAlertController(title: "Alert", message: "Problem Fetching News", preferredStyle: UIAlertController.Style.alert)

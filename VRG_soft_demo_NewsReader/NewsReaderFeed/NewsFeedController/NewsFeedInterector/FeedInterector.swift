@@ -36,17 +36,20 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
     var presenter: InterectorToPresenterProtocol?
     var remoteDatamanager: NewsFeedListRemoteDataManagerProtocol?
     
+    var currentNewsState: CurrentControllerState = CurrentControllerState.mostShared
+    
    private var pagination = Pagination()
    private var dataSource: [NewsFeed] = []
     private var isLoading: Bool = false
     
     func fetchNewsFeed() {
+        self.dataSource.removeAll()
         if isLoading {
             return
         }
         
         isLoading = true
-        remoteDatamanager?.getNews(pagination: pagination, resultHandler: {[weak self] (result) in
+        remoteDatamanager?.getNews(pagination: pagination, type: currentNewsState, resultHandler: {[weak self] (result) in
             self?.isLoading = false
             self?.dataSource.append(contentsOf: result)
             self?.pagination.increment()
@@ -57,3 +60,33 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
         })
     }
 }
+
+class FavoriteFeedInterector: PresentorToInterectorProtocol {
+    var presenter: InterectorToPresenterProtocol?
+    var remoteDatamanager: NewsFeedListRemoteDataManagerProtocol?
+    
+    var currentNewsState: CurrentControllerState = CurrentControllerState.mostShared
+    
+   private var pagination = Pagination()
+   private var dataSource: [NewsFeed] = []
+   private var isLoading: Bool = false
+    
+    func fetchNewsFeed() {
+        self.dataSource.removeAll()
+        if isLoading {
+            return
+        }
+        
+        isLoading = true
+        remoteDatamanager?.getFavorite(pagination: pagination, resultHandler: {[weak self] (result) in
+            self?.isLoading = false
+            self?.dataSource.append(contentsOf: result)
+            self?.pagination.increment()
+            self?.presenter?.newsFetched(news: self?.dataSource ?? [])
+        }, errorHandler: {[weak self] (error) in
+            self?.isLoading = false
+            self?.presenter?.newsFetchedFailed(error: error)
+        })
+    }
+}
+

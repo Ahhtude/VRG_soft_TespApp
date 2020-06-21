@@ -21,6 +21,11 @@ class NewsFeedPresenter: NewsFeedToPresenterProtocol {
     func showPostDetail(from view: NewsFeedViewProtocol, forPost post: NewsFeed) {
         router?.seguePostDetailModule(from: view, forPost: post)
     }
+    
+    func showFavoriteDetail(from view: NewsFeedViewProtocol ) {
+        router?.segueFavoriteDetailModule(from: view)
+    }
+    
 }
 
 extension NewsFeedPresenter: InterectorToPresenterProtocol {

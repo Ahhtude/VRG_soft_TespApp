@@ -13,20 +13,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-     let liveNews = NewsFeedRouter.createModule()
+
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       
-           
-
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = liveNews
-            window?.makeKeyAndVisible()
-
-            setupUIAppearance()
-            return true
+        return true
         }
 
         func setupUIAppearance() {

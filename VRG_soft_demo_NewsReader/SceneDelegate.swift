@@ -18,8 +18,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        window?.makeKeyAndVisible()
+        let liveNews = NewsFeedRouter.createModule()
+        window?.rootViewController = liveNews
+        //window = UIWindow(frame: UIScreen.main.bounds)
+        setupUIAppearance()
     }
-
+    
+    func setupUIAppearance() {
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.barTintColor = UIColor.blue
+        navBarAppearance.tintColor = UIColor.white
+        navBarAppearance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 18), .foregroundColor: UIColor.white]
+        navBarAppearance.shadowImage = UIImage()
+        navBarAppearance.setBackgroundImage(UIImage(), for: .default)
+        navBarAppearance.isTranslucent = false
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

@@ -7,33 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "568EF437-3CBD-401B-B4E7-CEB0CF27C23A"
-            shouldBeEnabled = "Yes"
+            uuid = "19930474-D6BA-4278-AF6C-F238FCB91FFA"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VRG_soft_demo_NewsReader/NewsReaderFeed/NewsFeedController/ViewController/NewsFeedViewController.swift"
+            filePath = "VRG_soft_demo_NewsReader/NetworkService/NetworkService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "init(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "344B0650-AC78-4BFC-A12C-702A0B5B51C2"
+            uuid = "AB675927-8148-4443-BA9C-66C3234D1FE6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VRG_soft_demo_NewsReader/NewsReaderFeed/NewsFeedController/Router/NewsFeedRouter.swift"
+            filePath = "VRG_soft_demo_NewsReader/NewsReaderFeed/NewsDetailViewControoler/Protocols/NewsDetailViewProtocol.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "createModule()"
-            landmarkType = "7">
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "NewsDetailPresenterProtocol"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

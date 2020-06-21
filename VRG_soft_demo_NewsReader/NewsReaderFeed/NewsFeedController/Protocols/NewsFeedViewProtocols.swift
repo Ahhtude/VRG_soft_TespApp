@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+enum CurrentControllerState : String {
+    case mostShared  = "/shared/"
+    case mostViewd   = "/viewed/"
+    case mostEmailed = "/emailed/"
+}
+
 protocol NewsFeedViewProtocol: class {
     func showNews(news: [NewsFeed])
     func showError(error: Error?)
@@ -16,28 +22,19 @@ protocol NewsFeedViewProtocol: class {
     func hideLoadingView()
 }
 
-protocol InterectorToPresenterProtocol: class {
-    func newsFetched(news: [NewsFeed])
-    func newsFetchedFailed(error: Error?)
-}
-
-protocol PresentorToInterectorProtocol: class {
-    var presenter: InterectorToPresenterProtocol? {get set}
-    var remoteDatamanager: NewsFeedListRemoteDataManagerProtocol? {get set}
-    func fetchNewsFeed()
-}
-
 protocol NewsFeedToPresenterProtocol: class {
     var view: NewsFeedViewProtocol? {get set}
     var interector: PresentorToInterectorProtocol? {get set}
     var router: PresenterToRouterProtocol? {get set}
-    
     func fetchNewsFeed()
     func viewDidLoad()
     func showPostDetail(from: NewsFeedViewProtocol, forPost: NewsFeed)
+    func showFavoriteDetail(from: NewsFeedViewProtocol)
 }
 
 protocol PresenterToRouterProtocol: class {
     static func createModule() -> UIViewController
-           func seguePostDetailModule(from: NewsFeedViewProtocol, forPost: NewsFeed)
+           func seguePostDetailModule(from view: NewsFeedViewProtocol, forPost: NewsFeed)
+           func segueFavoriteDetailModule(from: NewsFeedViewProtocol)
+            
 }
