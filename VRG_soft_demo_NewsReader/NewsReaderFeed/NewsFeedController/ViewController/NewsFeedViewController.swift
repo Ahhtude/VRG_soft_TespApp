@@ -23,7 +23,6 @@ class NewsFeedViewController: BaseViewController {
         presenter.viewDidLoad()
         self.presenter.interector?.currentNewsState = .mostViewed
         configureTableView()
-        self.title = "News"
     }
     
     func configureTableView() {
@@ -89,5 +88,27 @@ extension NewsFeedViewController: NewsFeedViewProtocol {
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         tableView.tableFooterView = nil
+    }
+}
+
+
+class ViewdFeedViewController : NewsFeedViewController {
+    override func viewDidLoad() {
+         super.viewDidLoad()
+         self.title = "Most viewed"
+    }
+}
+
+class MailedFeedViewController : NewsFeedViewController {
+    override func viewDidLoad() {
+         super.viewDidLoad()
+         self.title = "Most mailed"
+    }
+}
+
+class SharedFeedViewController : NewsFeedViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Most shared"
     }
 }

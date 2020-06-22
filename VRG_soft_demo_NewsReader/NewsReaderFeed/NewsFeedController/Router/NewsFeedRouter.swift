@@ -46,6 +46,62 @@ class NewsFeedRouter: PresenterToRouterProtocol {
         return UINavigationController.init(rootViewController: viewController!)
     }
     
+    static func createModuleViewdVC() -> UIViewController {
+        let viewController = mainstoryboard.instantiateViewController(withIdentifier: "ViewdFeedViewController") as? ViewdFeedViewController
+        
+        let presenter: NewsFeedToPresenterProtocol & InterectorToPresenterProtocol = NewsFeedPresenter()
+        
+        let interactor: PresentorToInterectorProtocol = NewsFeedInterector(newsInterectorType: CurrentControllerState.mostViewed)
+
+        let router: PresenterToRouterProtocol = NewsFeedRouter()
+        
+        viewController?.presenter = presenter
+        presenter.view = viewController
+        presenter.router = router
+        presenter.interector = interactor
+        interactor.presenter = presenter
+        interactor.remoteDatamanager = NewsFeedListRemoteDataManager()
+        return UINavigationController.init(rootViewController: viewController!)
+        
+    }
+    
+    static func createModuleMailedVC() -> UIViewController {
+        
+        let viewController = mainstoryboard.instantiateViewController(withIdentifier: "MailedFeedViewController") as? MailedFeedViewController
+        
+        let presenter: NewsFeedToPresenterProtocol & InterectorToPresenterProtocol = NewsFeedPresenter()
+        
+        let interactor: PresentorToInterectorProtocol = NewsFeedInterector(newsInterectorType: CurrentControllerState.mostEmailed)
+
+        let router: PresenterToRouterProtocol = NewsFeedRouter()
+        
+        viewController?.presenter = presenter
+        presenter.view = viewController
+        presenter.router = router
+        presenter.interector = interactor
+        interactor.presenter = presenter
+        interactor.remoteDatamanager = NewsFeedListRemoteDataManager()
+        return UINavigationController.init(rootViewController: viewController!)
+    }
+    
+    static func createModuleSharedVC() -> UIViewController {
+        let viewController = mainstoryboard.instantiateViewController(withIdentifier: "SharedFeedViewController") as? SharedFeedViewController
+        
+        let presenter: NewsFeedToPresenterProtocol & InterectorToPresenterProtocol = NewsFeedPresenter()
+        
+        let interactor: PresentorToInterectorProtocol = NewsFeedInterector(newsInterectorType: CurrentControllerState.mostShared)
+
+        let router: PresenterToRouterProtocol = NewsFeedRouter()
+        
+        viewController?.presenter = presenter
+        presenter.view = viewController
+        presenter.router = router
+        presenter.interector = interactor
+        interactor.presenter = presenter
+        interactor.remoteDatamanager = NewsFeedListRemoteDataManager()
+        return UINavigationController.init(rootViewController: viewController!)
+    }
+    
     static var mainstoryboard: UIStoryboard {
         return UIStoryboard(name:"Main",bundle: Bundle.main)
     }

@@ -10,15 +10,28 @@ import Foundation
 import UIKit
 
 class MainTabBarViewController : UITabBarController{
-    var firstVC = NewsFeedRouter.createModule(newsTypeVC: CurrentControllerState.mostViewed)
-    var secondVC = NewsFeedRouter.createModule(newsTypeVC: CurrentControllerState.mostShared)
-    var thredVC = NewsFeedRouter.createModule(newsTypeVC: CurrentControllerState.mostEmailed)
+    var firstVC = NewsFeedRouter.createModuleViewdVC()
+    var secondVC = NewsFeedRouter.createModuleMailedVC()
+    var thirdVC = NewsFeedRouter.createModuleSharedVC()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.setToolbarItems(self.buttons, animated: true)
-        self.setViewControllers([firstVC,secondVC,thredVC], animated: true)
+        self.setViewControllers([firstVC,secondVC,thirdVC], animated: true)
+        setUpBar()
+    }
+    
+    private func setUpBar(){
+        firstVC.tabBarItem.title = "Most viewed"
+        firstVC.tabBarItem.image = UIImage(named: "viewed")
+        firstVC.tabBarItem.selectedImage = UIImage(named: "viewed")
         
+        secondVC.tabBarItem.title = "Most mailed"
+        secondVC.tabBarItem.image = UIImage(named: "emailed")
+        secondVC.tabBarItem.selectedImage = UIImage(named: "emailed")
+        
+        thirdVC.tabBarItem.title = "Most shared"
+        thirdVC.tabBarItem.image = UIImage(named: "shared")
+        thirdVC.tabBarItem.selectedImage = UIImage(named: "shared")
         
     }
 }

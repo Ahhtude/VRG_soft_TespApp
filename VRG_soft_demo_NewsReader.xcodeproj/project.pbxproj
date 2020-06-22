@@ -34,8 +34,9 @@
 		24EBC4D3249F9FBB0069A70D /* Pagination + Interactor protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4D2249F9FBB0069A70D /* Pagination + Interactor protocols.swift */; };
 		24EBC4DE249FD48E0069A70D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4DD249FD48E0069A70D /* MainTabBarViewController.swift */; };
 		24EBC4E3249FEA6C0069A70D /* FavoriteFeedInterector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4E2249FEA6C0069A70D /* FavoriteFeedInterector.swift */; };
-		24EBC4EA249FF9AA0069A70D /* addToFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4E9249FF9AA0069A70D /* addToFavoriteButton.swift */; };
+		24EBC4EA249FF9AA0069A70D /* AddToFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4E9249FF9AA0069A70D /* AddToFavoriteButton.swift */; };
 		24EBC4EC24A05D400069A70D /* Extension + NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */; };
+		24EBC4EE24A078EC0069A70D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4ED24A078EC0069A70D /* CoreDataManager.swift */; };
 		5978DA8B646B4C95DE17A8CF /* Pods_VRG_soft_demo_NewsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C51F7080960DAC0A070216 /* Pods_VRG_soft_demo_NewsReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +72,9 @@
 		24EBC4D2249F9FBB0069A70D /* Pagination + Interactor protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pagination + Interactor protocols.swift"; sourceTree = "<group>"; };
 		24EBC4DD249FD48E0069A70D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		24EBC4E2249FEA6C0069A70D /* FavoriteFeedInterector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFeedInterector.swift; sourceTree = "<group>"; };
-		24EBC4E9249FF9AA0069A70D /* addToFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addToFavoriteButton.swift; sourceTree = "<group>"; };
+		24EBC4E9249FF9AA0069A70D /* AddToFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToFavoriteButton.swift; sourceTree = "<group>"; };
 		24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NSMutableAttributedString.swift"; sourceTree = "<group>"; };
+		24EBC4ED24A078EC0069A70D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B2163C0EC31A1207982E43FA /* Pods-VRG_soft_demo_NewsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRG_soft_demo_NewsReader.release.xcconfig"; path = "Target Support Files/Pods-VRG_soft_demo_NewsReader/Pods-VRG_soft_demo_NewsReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 			children = (
 				24EBC48D249E0E190069A70D /* NetworkService.swift */,
 				24EBC4D2249F9FBB0069A70D /* Pagination + Interactor protocols.swift */,
+				24EBC4ED24A078EC0069A70D /* CoreDataManager.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -346,7 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */,
-				24EBC4E9249FF9AA0069A70D /* addToFavoriteButton.swift */,
+				24EBC4E9249FF9AA0069A70D /* AddToFavoriteButton.swift */,
 			);
 			path = "Components + Extensions";
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				24EBC4B7249E17680069A70D /* NewsDetailViewProtocol.swift in Sources */,
 				24EBC4C8249F3D5C0069A70D /* FavoriteDetailProtocol.swift in Sources */,
 				24EBC4B9249E179D0069A70D /* NewsDetailRouter.swift in Sources */,
+				24EBC4EE24A078EC0069A70D /* CoreDataManager.swift in Sources */,
 				24EBC4A1249E11A00069A70D /* NewsFeedPresenter.swift in Sources */,
 				24EBC4CC249F40E20069A70D /* FavoriteDetailViewController.swift in Sources */,
 				24EBC4EC24A05D400069A70D /* Extension + NSMutableAttributedString.swift in Sources */,
@@ -495,7 +499,7 @@
 				24EBC4A4249E15AE0069A70D /* FeedInterector.swift in Sources */,
 				24EBC4A7249E15D50069A70D /* NewsFeedRouter.swift in Sources */,
 				24EBC494249E0EB90069A70D /* FeedViewCell.swift in Sources */,
-				24EBC4EA249FF9AA0069A70D /* addToFavoriteButton.swift in Sources */,
+				24EBC4EA249FF9AA0069A70D /* AddToFavoriteButton.swift in Sources */,
 				24EBC4CA249F3E490069A70D /* FavoriteDetailPresenter.swift in Sources */,
 				24EBC4D3249F9FBB0069A70D /* Pagination + Interactor protocols.swift in Sources */,
 				24EBC4CF249F4B7F0069A70D /* FavoriteViewCell.swift in Sources */,

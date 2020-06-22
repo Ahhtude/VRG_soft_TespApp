@@ -9,28 +9,23 @@
 import Foundation
 import UIKit
 
-class addToFavoriteButton : UIButton {
-        var isSelect: Bool = false {
-            didSet {
-                isSelected = isSelect
-                selected(selected: isSelect)
-            }
-        }
-        
+class AddToFavoriteButton : UIButton {
         override func awakeFromNib() {
             super.awakeFromNib()
             self.titleLabel?.numberOfLines = 0
             layer.borderColor = UIColor.black.cgColor
             self.layer.cornerRadius = 6
-            layer.borderWidth = 1
+            layer.borderWidth = 0.5
         }
         
-        func selected(selected: Bool) {
-            if selected {
-                backgroundColor = UIColor.red
-            } else {
-                backgroundColor = UIColor.white
-            }
+        func showSelection() {
+            UIView.animate(withDuration: 0.3, animations: {[unowned self] in
+                    self.backgroundColor = UIColor.red
+                }, completion: {[unowned self] _ in
+                    UIView.animate(withDuration: 0.3 , animations: {[unowned self] in
+                       self.backgroundColor = UIColor.white
+                    })
+                })
         }
     
     func setTitleWithImage(title: String, image: String) {
@@ -39,7 +34,7 @@ class addToFavoriteButton : UIButton {
             return
         }
         let imageAttach = NSTextAttachment()
-        imageAttach.bounds = CGRect(x: 5, y: 0, width: img.size.width, height: img.size.width)
+        imageAttach.bounds = CGRect(x: 0, y: -3, width: img.size.width, height: img.size.width)
         imageAttach.image = img
         let main = NSMutableAttributedString(attachment: imageAttach)
         let title = NSAttributedString(string: "  " + NSLocalizedString(title, comment: "") + " ",

@@ -34,6 +34,9 @@ protocol NewsFeedToPresenterProtocol: class {
 
 protocol PresenterToRouterProtocol: class {
     static func createModule(newsTypeVC: CurrentControllerState) -> UIViewController
+    static func createModuleViewdVC() -> UIViewController
+    static func createModuleSharedVC() -> UIViewController
+    static func createModuleMailedVC() -> UIViewController
            func seguePostDetailModule(from view: NewsFeedViewProtocol, forPost: NewsFeed)
            func segueFavoriteDetailModule(from: NewsFeedViewProtocol)
             

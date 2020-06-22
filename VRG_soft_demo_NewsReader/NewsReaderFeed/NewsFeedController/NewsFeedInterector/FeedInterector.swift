@@ -47,7 +47,6 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
     private var isLoading: Bool = false
     
     func fetchNewsFeed() {
-        self.dataSource.removeAll()
         if isLoading {
             return
         }

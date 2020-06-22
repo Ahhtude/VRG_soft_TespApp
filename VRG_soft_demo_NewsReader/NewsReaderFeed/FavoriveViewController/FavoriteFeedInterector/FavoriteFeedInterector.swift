@@ -19,13 +19,13 @@ class FavoriteFeedInterector: PresentorToInterectorProtocol {
    private var isLoading: Bool = false
     
     func fetchNewsFeed() {
-        self.dataSource.removeAll()
         if isLoading {
             return
         }
         
         isLoading = true
-        remoteDatamanager?.getFavorite(pagination: pagination, resultHandler: {[weak self] (result) in
+        remoteDatamanager?.getFavorite(resultHandler: {[weak self] (result) in
+            print("result is \(result.count)")
             self?.isLoading = false
             self?.dataSource.append(contentsOf: result)
             self?.pagination.increment()

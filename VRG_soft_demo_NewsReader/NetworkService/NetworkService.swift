@@ -95,7 +95,7 @@ class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
         }
     }
     
-    func getFavorite(pagination: Pagination, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
+    func getFavorite( resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
                 request.returnsObjectsAsFaults = false
         

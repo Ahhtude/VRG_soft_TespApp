@@ -20,21 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
-        //let liveNews = NewsFeedRouter.createModule()
         let vc = UIStoryboard(name:"Main",bundle: Bundle.main).instantiateViewController(identifier: "MainTabBarViewController")
         window?.rootViewController = vc
-        //window = UIWindow(frame: UIScreen.main.bounds)
-        setupUIAppearance()
-    }
-    
-    func setupUIAppearance() {
-        let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.barTintColor = UIColor.white
-        navBarAppearance.tintColor = UIColor.black
-        navBarAppearance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 18), .foregroundColor: UIColor.black]
-        navBarAppearance.shadowImage = UIImage()
-        navBarAppearance.setBackgroundImage(UIImage(), for: .default)
-        navBarAppearance.isTranslucent = false
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
