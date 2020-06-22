@@ -31,6 +31,7 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
         self.title = Constants.title
     }
     
+    
     func showPostDetail(forPost post: NewsFeed) {
         titleLabel.text = post.title
         descrLabel.text = post.body

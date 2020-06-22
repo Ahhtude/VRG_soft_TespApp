@@ -22,7 +22,6 @@ class FeedViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.favoriteButton.setTitleWithImage(title: "add to favorite", image: "favorite")
     }
     
     override func prepareForReuse() {
@@ -30,6 +29,7 @@ class FeedViewCell: UITableViewCell {
         titleLabel.text = ""
         descrLabel.text = ""
         self.newsFeed = nil
+        
     }
     
     func fill(post: NewsFeed) {
@@ -37,7 +37,7 @@ class FeedViewCell: UITableViewCell {
         titleLabel.text = post.title
         descrLabel.text = post.body
         dateLabel.text = post.publishDate
-        
+        self.favoriteButton.setTitleWithImage(title: "add to favorite", image: "favorite")
         guard let imgString = post.image else {
             self.feedImage.contentMode = .scaleAspectFit
             self.feedImage.image = UIImage(named: "defaultNewsImage")

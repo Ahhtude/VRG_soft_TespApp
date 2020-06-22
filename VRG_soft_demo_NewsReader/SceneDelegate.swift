@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc = UIStoryboard(name:"Main",bundle: Bundle.main).instantiateViewController(identifier: "MainTabBarViewController")
         window?.rootViewController = vc
     }
+    
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

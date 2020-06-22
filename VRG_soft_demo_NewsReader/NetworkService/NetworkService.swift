@@ -16,7 +16,7 @@ protocol NewsFeedListRemoteDataManagerProtocol {
     func getFavorite(resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
 }
 
-fileprivate struct Constants {
+ fileprivate struct Constants {
     //static let baseURL = "https://api.nytimes.com/svc/mostpopular/v2/shared/30.json?api-key=eSIo1TcjJ1rQ1EGIMpAnLdTplROqXZyH"
     static let baseURL = "https://api.nytimes.com/svc/mostpopular/v2"
     static let endURL  = "30.json?api-key=eSIo1TcjJ1rQ1EGIMpAnLdTplROqXZyH"
@@ -64,8 +64,8 @@ class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
     
     func getNews(type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
         
-        var test : String = Constants.baseURL + type.rawValue + Constants.endURL
-        let path = String(format: test)
+        //var test : String =
+        let path = String(format: Constants.baseURL + type.rawValue + Constants.endURL)
         
         print("Current path to request ---- \n \(path) \n ----------")
         
@@ -95,7 +95,7 @@ class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
         }
     }
     
-    func getFavorite( resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
+    func getFavorite(resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
                 request.returnsObjectsAsFaults = false
         

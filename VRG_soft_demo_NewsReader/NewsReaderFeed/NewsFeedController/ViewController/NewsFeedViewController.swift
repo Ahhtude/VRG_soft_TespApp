@@ -35,6 +35,8 @@ class NewsFeedViewController: BaseViewController {
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView?.register(UINib(nibName: "FeedViewCell", bundle: nil),
+        forCellReuseIdentifier: "FeedViewCell")
     }
     
     @IBAction func favoriteButtonTap(_ sender: Any) {
@@ -54,18 +56,6 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.fill(post: feed)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if newsFeeds.count > 0 && newsFeeds.count - 1 == indexPath.row && newsFeeds.count == dataSource.count {
-            let activity = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: view.frame.width,
-                                                                 height: Constants.heighOfActivityIndicator))
-            activity.startAnimating()
-            activity.color = UIColor.black
-            tableView.tableFooterView = activity
-            presenter.fetchNewsFeed()
-        }
-    }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let feed = dataSource[indexPath.row]

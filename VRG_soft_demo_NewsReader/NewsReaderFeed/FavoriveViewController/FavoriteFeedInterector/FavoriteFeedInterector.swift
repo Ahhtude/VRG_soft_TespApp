@@ -14,7 +14,6 @@ class FavoriteFeedInterector: PresentorToInterectorProtocol {
     
     var currentNewsState: CurrentControllerState = CurrentControllerState.mostEmailed
     
-   private var pagination = Pagination()
    private var dataSource: [NewsFeed] = []
    private var isLoading: Bool = false
     
@@ -25,10 +24,8 @@ class FavoriteFeedInterector: PresentorToInterectorProtocol {
         
         isLoading = true
         remoteDatamanager?.getFavorite(resultHandler: {[weak self] (result) in
-            print("result is \(result.count)")
             self?.isLoading = false
             self?.dataSource.append(contentsOf: result)
-            self?.pagination.increment()
             self?.presenter?.newsFetched(news: self?.dataSource ?? [])
         }, errorHandler: {[weak self] (error) in
             self?.isLoading = false

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class MainTabBarViewController : UITabBarController{
+    
     var firstVC = NewsFeedRouter.createModuleViewdVC()
     var secondVC = NewsFeedRouter.createModuleMailedVC()
     var thirdVC = NewsFeedRouter.createModuleSharedVC()

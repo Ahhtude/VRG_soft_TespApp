@@ -37,6 +37,8 @@
 		24EBC4EA249FF9AA0069A70D /* AddToFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4E9249FF9AA0069A70D /* AddToFavoriteButton.swift */; };
 		24EBC4EC24A05D400069A70D /* Extension + NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */; };
 		24EBC4EE24A078EC0069A70D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4ED24A078EC0069A70D /* CoreDataManager.swift */; };
+		24EBC4F024A0B0D90069A70D /* FeedViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24EBC4EF24A0B0D90069A70D /* FeedViewCell.xib */; };
+		24EBC4F224A0B1A20069A70D /* FavoriteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24EBC4F124A0B1A20069A70D /* FavoriteViewCell.xib */; };
 		5978DA8B646B4C95DE17A8CF /* Pods_VRG_soft_demo_NewsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C51F7080960DAC0A070216 /* Pods_VRG_soft_demo_NewsReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		24EBC4E9249FF9AA0069A70D /* AddToFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToFavoriteButton.swift; sourceTree = "<group>"; };
 		24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NSMutableAttributedString.swift"; sourceTree = "<group>"; };
 		24EBC4ED24A078EC0069A70D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		24EBC4EF24A0B0D90069A70D /* FeedViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewCell.xib; sourceTree = "<group>"; };
+		24EBC4F124A0B1A20069A70D /* FavoriteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewCell.xib; sourceTree = "<group>"; };
 		B2163C0EC31A1207982E43FA /* Pods-VRG_soft_demo_NewsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRG_soft_demo_NewsReader.release.xcconfig"; path = "Target Support Files/Pods-VRG_soft_demo_NewsReader/Pods-VRG_soft_demo_NewsReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,7 @@
 		24EBC49A249E0F540069A70D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				24EBC4EF24A0B0D90069A70D /* FeedViewCell.xib */,
 				24EBC493249E0EB90069A70D /* FeedViewCell.swift */,
 			);
 			path = Views;
@@ -325,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				24EBC4CE249F4B7F0069A70D /* FavoriteViewCell.swift */,
+				24EBC4F124A0B1A20069A70D /* FavoriteViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,8 +429,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EBC4F024A0B0D90069A70D /* FeedViewCell.xib in Resources */,
 				24EBC482249E0D2D0069A70D /* LaunchScreen.storyboard in Resources */,
 				24EBC47F249E0D2D0069A70D /* Assets.xcassets in Resources */,
+				24EBC4F224A0B1A20069A70D /* FavoriteViewCell.xib in Resources */,
 				24EBC47A249E0D2C0069A70D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

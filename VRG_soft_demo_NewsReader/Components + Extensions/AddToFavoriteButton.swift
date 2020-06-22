@@ -24,6 +24,7 @@ class AddToFavoriteButton : UIButton {
                 }, completion: {[unowned self] _ in
                     UIView.animate(withDuration: 0.3 , animations: {[unowned self] in
                        self.backgroundColor = UIColor.white
+                       //self.isHidden = true
                     })
                 })
         }

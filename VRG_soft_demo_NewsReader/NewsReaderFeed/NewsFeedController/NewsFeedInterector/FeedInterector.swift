@@ -9,27 +9,27 @@
 import Foundation
 import Alamofire
 
-class Pagination {
-   private var currentPage: Int
-   private var maxCount: Int
-    
-    init() {
-        currentPage = 1
-        maxCount = 1
-    }
-    
-    func increment() {
-        currentPage += 1
-    }
-    
-    func getCurrentPage() -> Int {
-        return currentPage
-    }
-
-    func reset() {
-        currentPage = 1
-    }
-}
+//class Pagination {
+//   private var currentPage: Int
+//   private var maxCount: Int
+//    
+//    init() {
+//        currentPage = 1
+//        maxCount = 1
+//    }
+//    
+//    func increment() {
+//        currentPage += 1
+//    }
+//    
+//    func getCurrentPage() -> Int {
+//        return currentPage
+//    }
+//
+//    func reset() {
+//        currentPage = 1
+//    }
+//}
 
 class NewsFeedInterector: PresentorToInterectorProtocol {
     
@@ -42,7 +42,6 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
         self.currentNewsState = newsInterectorType
     }
     
-   private var pagination = Pagination()
    private var dataSource: [NewsFeed] = []
     private var isLoading: Bool = false
     
@@ -55,7 +54,6 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
         remoteDatamanager?.getNews(type: currentNewsState, resultHandler: {[weak self] (result) in
             self?.isLoading = false
             self?.dataSource.append(contentsOf: result)
-            self?.pagination.increment()
             self?.presenter?.newsFetched(news: self?.dataSource ?? [])
         }, errorHandler: {[weak self] (error) in
             self?.isLoading = false
