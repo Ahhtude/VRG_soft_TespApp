@@ -15,6 +15,7 @@ class AddToFavoriteButton : UIButton {
             self.titleLabel?.numberOfLines = 0
             layer.borderColor = UIColor.black.cgColor
             self.layer.cornerRadius = 6
+            backgroundColor = .gray
             layer.borderWidth = 0.5
         }
         
@@ -23,7 +24,7 @@ class AddToFavoriteButton : UIButton {
                     self.backgroundColor = UIColor.red
                 }, completion: {[unowned self] _ in
                     UIView.animate(withDuration: 0.3 , animations: {[unowned self] in
-                       self.backgroundColor = UIColor.white
+                       self.backgroundColor = UIColor.gray
                        //self.isHidden = true
                     })
                 })
