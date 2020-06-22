@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension NSMutableAttributedString {
     public func setAsLink(textToFind:String, linkURL:String) -> Bool {
@@ -18,5 +19,11 @@ extension NSMutableAttributedString {
             return true
         }
         return false
+    }
+}
+
+extension UIColor {
+    static var mainAppColor: UIColor {
+        return UIColor(red: 0, green: 0.7216, blue: 0.7569, alpha: 1.0)
     }
 }

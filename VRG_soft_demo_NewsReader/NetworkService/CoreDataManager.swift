@@ -21,7 +21,7 @@ class CoreDataManager {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
         request.returnsObjectsAsFaults = false
         do {
-            let result = try Constants.context.fetch(request)
+            let result = try? Constants.context.fetch(request)
             
             guard let data = result as? [News],!data.map({$0.title}).contains(post.title)
         
@@ -39,9 +39,9 @@ class CoreDataManager {
                         news.setValue(imgString, forKey: "image")
                     }
                     try Constants.context.save()
- }
+        }
         catch {
                     print("Failed saving")
                 }
-}
+    }
 }

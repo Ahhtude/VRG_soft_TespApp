@@ -9,22 +9,27 @@
 import Foundation
 import UIKit
 
+fileprivate struct Constants {
+    static let baseColor : UIColor = UIColor.mainAppColor
+    static let actionColor : UIColor = .systemRed
+}
+
 class AddToFavoriteButton : UIButton {
         override func awakeFromNib() {
             super.awakeFromNib()
             titleLabel?.numberOfLines = 0
             layer.borderColor = UIColor.black.cgColor
             layer.cornerRadius = 6
-            backgroundColor = .gray
+            backgroundColor = Constants.baseColor
             layer.borderWidth = 0.5
         }
         
         func showSelection() {
             UIView.animate(withDuration: 0.3, animations: {[unowned self] in
-                    self.backgroundColor = UIColor.red
+                self.backgroundColor = Constants.actionColor
                 }, completion: {[unowned self] _ in
                     UIView.animate(withDuration: 0.3 , animations: {[unowned self] in
-                       self.backgroundColor = UIColor.gray
+                       self.backgroundColor = Constants.baseColor
                     })
                 })
         }
