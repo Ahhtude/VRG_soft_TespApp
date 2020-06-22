@@ -29,6 +29,8 @@ class FeedViewCell: UITableViewCell {
         feedImage.image = nil
         titleLabel.text = ""
         descrLabel.text = ""
+        favoriteButton.isSelect = false
+        self.newsFeed = nil
     }
     
     func fill(post: NewsFeed) {
@@ -50,7 +52,7 @@ class FeedViewCell: UITableViewCell {
     
     @IBAction func addToFavorite(_ sender: Any) {
         guard let news = self.newsFeed, !self.favoriteButton.isSelect else {
-            print("Adding to favorite was failed - news is NIL")
+            print("Adding to favorite was failed - news is NIL or News was added")
             return
         }
         
@@ -62,8 +64,8 @@ class FeedViewCell: UITableViewCell {
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
-        let news = NSManagedObject(entity: entity!, insertInto: context)
         
+        let news = NSManagedObject(entity: entity!, insertInto: context)
         news.setValue(post.title, forKey: "title")
         news.setValue(post.body, forKey: "body")
         news.setValue(post.publishDate, forKey: "publishDate")
@@ -73,11 +75,39 @@ class FeedViewCell: UITableViewCell {
             news.setValue(imgString, forKey: "image")
         }
         
-        do {
-           try context.save()
-            print("Content to local was saved")
-          } catch {
-            print("Failed saving")
+        if checkBeforeSave(news: news) {
+            do {
+               try context.save()
+                print("Content to local was saved")
+              } catch {
+                print("Failed saving")
+            }
+        } else {
+            print("News already saved")
+            return }
+    }
+    
+    private func checkBeforeSave(news: NSManagedObject) -> Bool {
+        print("news \(news)")
+        let checker = news as! News
+        
+        let app = UIApplication.shared.delegate as! AppDelegate
+        let context = app.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
+                       request.returnsObjectsAsFaults = false
+        
+         do {
+            let result = try context.fetch(request)
+            let data = result as! [News]
+            if !data.contains(checker) {
+                print("data contains \(data.contains(checker))")
+                return true
+            } else {
+                return false
+            }
+         } catch{
+            return false
         }
     }
 }
