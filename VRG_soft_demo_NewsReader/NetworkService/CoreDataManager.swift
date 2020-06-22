@@ -24,8 +24,8 @@ class CoreDataManager {
             let result = try Constants.context.fetch(request)
             let data = result as! [News]
             
-            guard let array : [String] = data.filter({$0 != nil}).map{$0.title} as! [String],
-                !data.filter({$0 != nil}).map{$0.title}.contains(post.title) else {
+            guard let _ : [String] = data.filter({$0 != nil}).map({$0.title}) as? [String],
+                !data.filter({$0 != nil}).map({$0.title}).contains(post.title) else {
                     print("adding news to core data failed")
                     return
             }

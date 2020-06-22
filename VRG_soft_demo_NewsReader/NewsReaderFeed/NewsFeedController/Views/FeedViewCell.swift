@@ -57,7 +57,6 @@ class FeedViewCell: UITableViewCell {
         
         self.favoriteButton.showSelection()
         CoreDataManager.addData(post: news)
-        //self.addToFavorite(post: news)
     }
 }
 

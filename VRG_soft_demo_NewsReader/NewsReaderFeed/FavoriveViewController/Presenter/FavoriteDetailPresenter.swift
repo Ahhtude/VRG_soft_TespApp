@@ -34,7 +34,7 @@ extension FavoriteDetailPresenter: InterectorToPresenterProtocol {
     }
     
     func newsFetchedFailed(error: Error?) {
-        print("")
+        view?.showError(error: error)
     }
 }
 

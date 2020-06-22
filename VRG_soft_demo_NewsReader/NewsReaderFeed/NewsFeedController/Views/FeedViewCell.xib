@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="181"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-q9-2Gc" customClass="AddToFavoriteButton" customModule="VRG_soft_demo_NewsReader" customModuleProvider="target">
-                                        <rect key="frame" x="325" y="4" width="30" height="20"/>
+                                        <rect key="frame" x="329" y="0.0" width="30" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="gZq-Jn-7R6"/>
                                         </constraints>
@@ -41,8 +41,8 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="y8g-SB-7zG" firstAttribute="top" secondItem="dSb-a5-C3X" secondAttribute="top" id="1b5-OX-aJv"/>
-                                    <constraint firstItem="6Ty-q9-2Gc" firstAttribute="top" secondItem="dSb-a5-C3X" secondAttribute="top" constant="4" id="HRZ-1R-S7V"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Ty-q9-2Gc" secondAttribute="trailing" constant="4" id="KhF-Lb-dSD"/>
+                                    <constraint firstItem="6Ty-q9-2Gc" firstAttribute="top" secondItem="dSb-a5-C3X" secondAttribute="top" id="HRZ-1R-S7V"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Ty-q9-2Gc" secondAttribute="trailing" id="KhF-Lb-dSD"/>
                                     <constraint firstItem="y8g-SB-7zG" firstAttribute="leading" secondItem="dSb-a5-C3X" secondAttribute="leading" id="SGT-FH-fSs"/>
                                     <constraint firstAttribute="bottom" secondItem="y8g-SB-7zG" secondAttribute="bottom" id="aPo-fm-In3"/>
                                     <constraint firstAttribute="trailing" secondItem="y8g-SB-7zG" secondAttribute="trailing" id="d4T-s2-rm7"/>

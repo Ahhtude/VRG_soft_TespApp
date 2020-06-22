@@ -11,6 +11,7 @@ import UIKit
 
 protocol FavoriteDetailViewProtocol: class {
      func showFavoriveNews(news: [NewsFeed])
+     func showError(error: Error?)
 }
 
 protocol FavoriteDetailRoutProtocol: class {
