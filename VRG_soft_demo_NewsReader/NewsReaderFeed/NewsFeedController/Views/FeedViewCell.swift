@@ -22,7 +22,7 @@ class FeedViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLabel.textColor = UIColor.mainAppColor
+        titleLabel.textColor = UIColor.mainAppColor
     }
     
     override func prepareForReuse() {

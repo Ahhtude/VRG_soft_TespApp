@@ -29,6 +29,7 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
         super.viewDidLoad()
         presenter?.updateView()
         self.title = Constants.title
+        self.titleLabel.textColor = UIColor.mainAppColor
     }
     
     

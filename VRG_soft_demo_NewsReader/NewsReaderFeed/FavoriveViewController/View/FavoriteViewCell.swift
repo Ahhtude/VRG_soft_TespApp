@@ -17,6 +17,7 @@ class FavoriteViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.textColor = UIColor.mainAppColor
     }
     
     override func prepareForReuse() {
