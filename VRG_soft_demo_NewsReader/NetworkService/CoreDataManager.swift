@@ -22,10 +22,10 @@ class CoreDataManager {
         request.returnsObjectsAsFaults = false
         do {
             let result = try Constants.context.fetch(request)
-            let data = result as! [News]
             
-            guard let _ : [String] = data.filter({$0 != nil}).map({$0.title}) as? [String],
-                !data.filter({$0 != nil}).map({$0.title}).contains(post.title) else {
+            guard let data = result as? [News],!data.map({$0.title}).contains(post.title)
+        
+                else {
                     print("adding news to core data failed")
                     return
             }
