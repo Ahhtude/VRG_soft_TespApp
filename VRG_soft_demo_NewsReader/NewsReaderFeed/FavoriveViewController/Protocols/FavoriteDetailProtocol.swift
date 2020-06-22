@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 protocol FavoriteDetailViewProtocol: class {
      func showFavoriveNews(news: [NewsFeed])
 }

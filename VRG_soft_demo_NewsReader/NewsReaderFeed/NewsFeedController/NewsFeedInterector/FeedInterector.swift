@@ -52,7 +52,7 @@ class NewsFeedInterector: PresentorToInterectorProtocol {
         }
         
         isLoading = true
-        remoteDatamanager?.getNews(pagination: pagination, type: currentNewsState, resultHandler: {[weak self] (result) in
+        remoteDatamanager?.getNews(type: currentNewsState, resultHandler: {[weak self] (result) in
             self?.isLoading = false
             self?.dataSource.append(contentsOf: result)
             self?.pagination.increment()

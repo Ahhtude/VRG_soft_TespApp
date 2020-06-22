@@ -10,23 +10,26 @@ import Foundation
 import UIKit
 import CoreData
 
+fileprivate struct Constants {
+    static let app = UIApplication.shared.delegate as! AppDelegate
+    static let context = app.persistentContainer.viewContext
+    static let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
+}
 class CoreDataManager {
     
     static func addData(post: NewsFeed) {
-        let app = UIApplication.shared.delegate as! AppDelegate
-        let context = app.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "News", in: context)
-        
-        let news = NSManagedObject(entity: entity!, insertInto: context)
+        let news = NSManagedObject(entity: Constants.entity!, insertInto: Constants.context)
         news.setValue(post.title, forKey: "title")
         news.setValue(post.body, forKey: "body")
         news.setValue(post.publishDate, forKey: "publishDate")
         news.setValue(post.more, forKey: "more")
+        
         if let imgString = post.image {
             news.setValue(imgString, forKey: "image")
         }
+        
         do {
-           try context.save()
+            try Constants.context.save()
             print("Content to local was saved")
           } catch {
             print("Failed saving")
@@ -34,7 +37,6 @@ class CoreDataManager {
     }
     
     private func checkBeforeSave(news: NSManagedObject) -> Bool {
-        print("news \(news)")
         let checker = news as! News
         
         let app = UIApplication.shared.delegate as! AppDelegate

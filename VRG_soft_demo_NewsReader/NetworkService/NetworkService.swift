@@ -11,12 +11,12 @@ import Alamofire
 import CoreData
 
 protocol NewsFeedListRemoteDataManagerProtocol {
-    func getNews(pagination: Pagination, type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
+    func getNews(type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
     
-    func getFavorite(pagination: Pagination, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
+    func getFavorite(resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ())
 }
 
-struct Constants {
+fileprivate struct Constants {
     //static let baseURL = "https://api.nytimes.com/svc/mostpopular/v2/shared/30.json?api-key=eSIo1TcjJ1rQ1EGIMpAnLdTplROqXZyH"
     static let baseURL = "https://api.nytimes.com/svc/mostpopular/v2"
     static let endURL  = "30.json?api-key=eSIo1TcjJ1rQ1EGIMpAnLdTplROqXZyH"
@@ -62,10 +62,10 @@ class Page<Model: Decodable>: Decodable {
 
 class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
     
-    func getNews(pagination: Pagination,type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
+    func getNews(type: CurrentControllerState, resultHandler: @escaping ([NewsFeed]) -> (), errorHandler: @escaping (NetworkError?) -> ()) {
         
         var test : String = Constants.baseURL + type.rawValue + Constants.endURL
-        let path = String(format: test, pagination.getCurrentPage())
+        let path = String(format: test)
         
         print("Current path to request ---- \n \(path) \n ----------")
         

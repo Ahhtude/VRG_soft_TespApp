@@ -9,6 +9,13 @@
 import UIKit
 import PKHUD
 
+fileprivate struct Constants {
+    static var heighOfActivityIndicator : CGFloat = CGFloat.init(100.0)
+    static var titleMostViewed = "Most viewed"
+    static var titleMostMailed = "Most mailed"
+    static var titleMostShared = "Most shared"
+}
+
 class NewsFeedViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -50,7 +57,8 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if newsFeeds.count > 0 && newsFeeds.count - 1 == indexPath.row && newsFeeds.count == dataSource.count {
-            let activity = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
+            let activity = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: view.frame.width,
+                                                                 height: Constants.heighOfActivityIndicator))
             activity.startAnimating()
             activity.color = UIColor.black
             tableView.tableFooterView = activity
@@ -95,20 +103,20 @@ extension NewsFeedViewController: NewsFeedViewProtocol {
 class ViewdFeedViewController : NewsFeedViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
-         self.title = "Most viewed"
+         self.title = Constants.titleMostViewed
     }
 }
 
 class MailedFeedViewController : NewsFeedViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
-         self.title = "Most mailed"
+        self.title = Constants.titleMostMailed
     }
 }
 
 class SharedFeedViewController : NewsFeedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Most shared"
+        self.title = Constants.titleMostShared
     }
 }

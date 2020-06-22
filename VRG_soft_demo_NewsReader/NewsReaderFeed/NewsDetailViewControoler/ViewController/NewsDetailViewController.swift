@@ -9,6 +9,11 @@
 import UIKit
 import Alamofire
 
+fileprivate struct Constants{
+    static var moreDetailLabel = "Click for more..."
+    static var title = "Post"
+}
+
 class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
 
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,14 +28,14 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.updateView()
-        self.title = "Post"
+        self.title = Constants.title
     }
     
     func showPostDetail(forPost post: NewsFeed) {
         titleLabel.text = post.title
         descrLabel.text = post.body
         dateLabel.text = post.publishDate
-        moreDetail.text = "Click for more..."
+        moreDetail.text = Constants.moreDetailLabel
         self.addLinkToTextView(text: post.more)
     
         guard let imgString = post.image else {
@@ -45,7 +50,8 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
     }
         private func addLinkToTextView(text: String){
             let linkedText = NSMutableAttributedString(attributedString: self.moreDetail.attributedText)
-            let hyperlinked = linkedText.setAsLink(textToFind: "Click for more...", linkURL: text)
+            let hyperlinked = linkedText.setAsLink(textToFind: Constants.moreDetailLabel,
+                                                   linkURL: text)
 
             if hyperlinked {
                 self.moreDetail.attributedText = NSAttributedString(attributedString: linkedText)
