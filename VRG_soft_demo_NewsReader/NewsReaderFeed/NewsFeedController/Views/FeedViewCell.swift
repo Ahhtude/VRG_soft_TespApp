@@ -36,10 +36,7 @@ class FeedViewCell: UITableViewCell {
         titleLabel.text = post.title
         descrLabel.text = post.body
         dateLabel.text = post.publishDate
-    
-
         
-        //guard let imgString = post.media.first?.mediaFiles.last?.imgString else {
         guard let imgString = post.image else {
             self.feedImage.contentMode = .scaleAspectFit
             self.feedImage.image = UIImage(named: "defaultNewsImage")
@@ -70,6 +67,7 @@ class FeedViewCell: UITableViewCell {
         news.setValue(post.title, forKey: "title")
         news.setValue(post.body, forKey: "body")
         news.setValue(post.publishDate, forKey: "publishDate")
+        news.setValue(post.more, forKey: "more")
         
         if let imgString = post.image {
             news.setValue(imgString, forKey: "image")
@@ -79,7 +77,9 @@ class FeedViewCell: UITableViewCell {
            try context.save()
             print("Content to local was saved")
           } catch {
-           print("Failed saving")
+            print("Failed saving")
         }
     }
 }
+
+

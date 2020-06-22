@@ -35,6 +35,7 @@
 		24EBC4DE249FD48E0069A70D /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4DD249FD48E0069A70D /* MainTabBarViewController.swift */; };
 		24EBC4E3249FEA6C0069A70D /* FavoriteFeedInterector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4E2249FEA6C0069A70D /* FavoriteFeedInterector.swift */; };
 		24EBC4EA249FF9AA0069A70D /* addToFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4E9249FF9AA0069A70D /* addToFavoriteButton.swift */; };
+		24EBC4EC24A05D400069A70D /* Extension + NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */; };
 		5978DA8B646B4C95DE17A8CF /* Pods_VRG_soft_demo_NewsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C51F7080960DAC0A070216 /* Pods_VRG_soft_demo_NewsReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		24EBC4DD249FD48E0069A70D /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		24EBC4E2249FEA6C0069A70D /* FavoriteFeedInterector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFeedInterector.swift; sourceTree = "<group>"; };
 		24EBC4E9249FF9AA0069A70D /* addToFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addToFavoriteButton.swift; sourceTree = "<group>"; };
+		24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + NSMutableAttributedString.swift"; sourceTree = "<group>"; };
 		B2163C0EC31A1207982E43FA /* Pods-VRG_soft_demo_NewsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VRG_soft_demo_NewsReader.release.xcconfig"; path = "Target Support Files/Pods-VRG_soft_demo_NewsReader/Pods-VRG_soft_demo_NewsReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +117,7 @@
 		24EBC471249E0D2C0069A70D /* VRG_soft_demo_NewsReader */ = {
 			isa = PBXGroup;
 			children = (
-				24EBC4E8249FF9990069A70D /* Components */,
+				24EBC4E8249FF9990069A70D /* Components + Extensions */,
 				24EBC491249E0E840069A70D /* NewsReaderFeed */,
 				24EBC48C249E0DF90069A70D /* NetworkService */,
 				24EBC489249E0DD30069A70D /* BaseViewController */,
@@ -340,12 +342,13 @@
 			path = FavoriteFeedInterector;
 			sourceTree = "<group>";
 		};
-		24EBC4E8249FF9990069A70D /* Components */ = {
+		24EBC4E8249FF9990069A70D /* Components + Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				24EBC4EB24A05D400069A70D /* Extension + NSMutableAttributedString.swift */,
 				24EBC4E9249FF9AA0069A70D /* addToFavoriteButton.swift */,
 			);
-			path = Components;
+			path = "Components + Extensions";
 			sourceTree = "<group>";
 		};
 		CB6A52FC8BD54A4A219676E2 /* Pods */ = {
@@ -480,6 +483,7 @@
 				24EBC4B9249E179D0069A70D /* NewsDetailRouter.swift in Sources */,
 				24EBC4A1249E11A00069A70D /* NewsFeedPresenter.swift in Sources */,
 				24EBC4CC249F40E20069A70D /* FavoriteDetailViewController.swift in Sources */,
+				24EBC4EC24A05D400069A70D /* Extension + NSMutableAttributedString.swift in Sources */,
 				24EBC499249E0F380069A70D /* NewsFeed.swift in Sources */,
 				24EBC4DE249FD48E0069A70D /* MainTabBarViewController.swift in Sources */,
 				24EBC49E249E0F900069A70D /* NewsFeedViewProtocols.swift in Sources */,

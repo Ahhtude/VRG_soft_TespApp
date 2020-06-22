@@ -34,24 +34,24 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeedViewCell" rowHeight="266" id="IYX-BE-DvQ" customClass="FeedViewCell" customModule="VRG_soft_demo_NewsReader">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedViewCell" rowHeight="266" id="IYX-BE-DvQ" customClass="FeedViewCell" customModule="VRG_soft_demo_NewsReader">
                                         <rect key="frame" x="0.0" y="28" width="414" height="266"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IYX-BE-DvQ" id="Hq4-6f-BAd">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SOg-cq-RT9">
-                                                    <rect key="frame" x="8" y="4" width="367" height="258"/>
+                                                    <rect key="frame" x="8" y="4" width="398" height="258"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIh-m4-Vom">
-                                                            <rect key="frame" x="0.0" y="0.0" width="367" height="185"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="398" height="200.5"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oAb-e9-0Vg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="367" height="185"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="200.5"/>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-Yw-kUQ" customClass="addToFavoriteButton" customModule="VRG_soft_demo_NewsReader" customModuleProvider="target">
-                                                                    <rect key="frame" x="329" y="8" width="30" height="29"/>
+                                                                    <rect key="frame" x="360" y="8" width="30" height="29"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <state key="normal" title="Add">
                                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,7 +73,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title news" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6A-tI-D3q">
-                                                            <rect key="frame" x="0.0" y="189" width="367" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="204.5" width="398" height="19.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="19.5" id="FgF-IR-TA5"/>
                                                             </constraints>
@@ -82,13 +82,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  jshdf kajdsfkjhasdkfaksdfjaklsdfalksdj fkajsdfkaljsdfasdf asdfa sdfasdf asdf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuS-TZ-x9c">
-                                                            <rect key="frame" x="0.0" y="212.5" width="367" height="31.5"/>
+                                                            <rect key="frame" x="0.0" y="228" width="398" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 jon 2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahi-qr-nhA">
-                                                            <rect key="frame" x="0.0" y="248" width="367" height="10"/>
+                                                            <rect key="frame" x="0.0" y="248" width="398" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="mjq-zo-Bgo"/>
                                                             </constraints>
@@ -155,10 +155,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPf-iH-VrI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="417"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="481"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-WB-vdV">
-                                                <rect key="frame" x="22" y="295" width="380" height="114"/>
+                                                <rect key="frame" x="22" y="295" width="380" height="178"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title news" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyd-wI-y3v">
                                                         <rect key="frame" x="0.0" y="0.0" width="380" height="19.5"/>
@@ -172,8 +172,18 @@
                                                         <color key="textColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" text="Lorem ipsum " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j4m-Ho-zcd">
+                                                        <rect key="frame" x="0.0" y="99.5" width="380" height="32"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" link="YES"/>
+                                                        </accessibility>
+                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 jon 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUW-yb-wr9">
-                                                        <rect key="frame" x="0.0" y="99.5" width="380" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="163.5" width="380" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                         <color key="textColor" red="0.37647058820000001" green="0.49019607840000001" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -225,6 +235,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="iUW-yb-wr9" id="02A-MJ-1XY"/>
                         <outlet property="descrLabel" destination="Oif-4g-AAe" id="VrE-oL-0Rl"/>
+                        <outlet property="moreDetail" destination="j4m-Ho-zcd" id="Z2Q-Vh-iFg"/>
                         <outlet property="postImage" destination="JFm-gL-e3c" id="O54-K8-fp1"/>
                         <outlet property="titleLabel" destination="Wyd-wI-y3v" id="wwE-kn-gph"/>
                     </connections>

@@ -109,7 +109,7 @@ class NewsFeedListRemoteDataManager: NewsFeedListRemoteDataManagerProtocol {
         do {
             let result = try context.fetch(request)
             for data in result as! [News] {
-                    let new = NewsFeed.init(title: data.title!, body: data.body!, date: data.publishDate!, image: data.image)
+                let new = NewsFeed.init(title: data.title!, body: data.body!, date: data.publishDate!, image: data.image, moreDetail: data.more!)
                     responseData.append(new)
                  }
             

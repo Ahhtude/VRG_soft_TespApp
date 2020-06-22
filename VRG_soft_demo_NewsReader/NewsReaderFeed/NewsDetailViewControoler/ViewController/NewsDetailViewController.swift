@@ -16,6 +16,8 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var postImage: UIImageView!
     
+    @IBOutlet weak var moreDetail: UITextView!
+    
     var presenter: NewsDetailPresenterProtocol?
 
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
         titleLabel.text = post.title
         descrLabel.text = post.body
         dateLabel.text = post.publishDate
+        moreDetail.text = "Click for more..."
+        self.addLinkToTextView(text: post.more)
     
         guard let imgString = post.image else {
                    self.postImage.contentMode = .scaleAspectFit
@@ -39,4 +43,12 @@ class NewsDetailViewController: BaseViewController, NewsDetailViewProtocol {
                    self.postImage.af_setImage(withURL: imageURL)
                }
     }
+        private func addLinkToTextView(text: String){
+            let linkedText = NSMutableAttributedString(attributedString: self.moreDetail.attributedText)
+            let hyperlinked = linkedText.setAsLink(textToFind: "Click for more...", linkURL: text)
+
+            if hyperlinked {
+                self.moreDetail.attributedText = NSAttributedString(attributedString: linkedText)
+            }
+        }
 }

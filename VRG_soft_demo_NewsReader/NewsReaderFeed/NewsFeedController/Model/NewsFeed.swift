@@ -14,7 +14,7 @@ struct NewsFeed: Decodable {
     let title: String
     let body : String
     private let media : [MediaModel]?
-    
+    let more : String
     var image : String?
 
     private enum CodingKeys: String, CodingKey {
@@ -22,6 +22,7 @@ struct NewsFeed: Decodable {
         case title = "title"
         case body = "abstract"
         case media = "media"
+        case moreDetail = "url"
     }
     
     init(from decoder: Decoder) throws {
@@ -29,16 +30,18 @@ struct NewsFeed: Decodable {
         title = try values.decodeIfPresent(String.self, forKey: .title) ?? ""
         body = try values.decodeIfPresent(String.self, forKey: .body) ?? ""
         publishDate = try values.decode(String.self, forKey: .publishDate)
+        more = try values.decode(String.self, forKey: .moreDetail)
         media = try values.decodeIfPresent([MediaModel].self, forKey: .media)!
         image = media?.first?.mediaFiles.last?.imgString
     }
     
-    init(title: String, body: String, date: String, image: String?) {
+    init(title: String, body: String, date: String, image: String?, moreDetail: String) {
         self.title = title
         self.body = body
         self.publishDate = date
         self.image = image
         self.media = nil
+        self.more = moreDetail
     }
 }
 
